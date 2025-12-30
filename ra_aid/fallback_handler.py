@@ -446,7 +446,7 @@ class FallbackHandler:
         elif isinstance(response, dict) and response.get("additional_kwargs", {}).get(
             "tool_calls"
         ):
-            tool_calls = response.get("additional_kwargs").get("tool_calls")
+            tool_calls = response.get("additional_kwargs", {}).get("tool_calls")
         return tool_calls
 
     def handle_failure_response(
